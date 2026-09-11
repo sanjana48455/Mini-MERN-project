@@ -70,4 +70,32 @@ app.get("/posts", async (req, res) => {
     }
 });
 
+// DELETE POST
+app.delete("/posts/:id", async (req, res) => {
+    try {
+        await connectDB();
+
+        const deletedPost = await postModel.findByIdAndDelete(req.params.id);
+
+        if (!deletedPost) {
+            return res.status(404).json({
+                message: "Post not found"
+            });
+        }
+
+        return res.status(200).json({
+            message: "Post deleted successfully",
+            post: deletedPost
+        });
+
+    } catch (error) {
+        console.log("Error deleting post:", error);
+
+        return res.status(500).json({
+            message: "Failed to delete post",
+            error: error.message
+        });
+    }
+});
+
 module.exports = app;
