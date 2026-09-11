@@ -16,6 +16,7 @@ const CreatePost = () => {
             formData
         )
         .then((res) => {
+            console.log("Post created successfully")
             navigate("/feed")
         })
         .catch((err) => {
@@ -25,33 +26,103 @@ const CreatePost = () => {
     }
 
     return (
-        <section className='create-post-section'>
+        <div
+            style={{
+                minHeight: "100vh",
+                background: "#ffffff",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "flex-start",
+                paddingTop: "65px",
+                fontFamily: "Arial, sans-serif"
+            }}
+        >
 
-            <h1>Upload your favorite photo</h1>
+            <section
+                style={{
+                    width: "800px",
+                    background: "#ffffff",
+                    padding: "65px 50px 50px",
+                    borderRadius: "20px",
+                    boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)"
+                }}
+            >
 
-            <form onSubmit={handleSubmit}>
+                <h1
+                    style={{
+                        textAlign: "center",
+                        fontSize: "40px",
+                        margin: "0 0 40px",
+                        color: "#14213d",
+                        fontFamily: "Georgia, serif"
+                    }}
+                >
+                    Upload your favorite photo
+                </h1>
 
-                <input
-                    type="file"
-                    name="image"
-                    accept="image/*"
-                    required
-                />
+                <form
+                    onSubmit={handleSubmit}
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "25px"
+                    }}
+                >
 
-                <input
-                    type="text"
-                    name="caption"
-                    placeholder="Enter caption"
-                    required
-                />
+                    <input
+                        type="file"
+                        name="image"
+                        accept="image/*"
+                        required
+                        style={{
+                            width: "100%",
+                            boxSizing: "border-box",
+                            padding: "20px",
+                            border: "2px dashed #8abaff",
+                            borderRadius: "15px",
+                            background: "#f4f8ff",
+                            fontSize: "16px"
+                        }}
+                    />
 
-                <button type="submit">
-                    Submit
-                </button>
+                    <input
+                        type="text"
+                        name="caption"
+                        placeholder="Enter caption"
+                        required
+                        style={{
+                            width: "100%",
+                            boxSizing: "border-box",
+                            padding: "20px",
+                            border: "1px solid #d1d5db",
+                            borderRadius: "15px",
+                            fontSize: "20px",
+                            outline: "none"
+                        }}
+                    />
 
-            </form>
+                    <button
+                        type="submit"
+                        style={{
+                            width: "100%",
+                            padding: "18px",
+                            background: "#2864e8",
+                            color: "white",
+                            border: "none",
+                            borderRadius: "15px",
+                            fontSize: "23px",
+                            fontWeight: "bold",
+                            cursor: "pointer"
+                        }}
+                    >
+                        Submit
+                    </button>
 
-        </section>
+                </form>
+
+            </section>
+
+        </div>
     )
 }
 
