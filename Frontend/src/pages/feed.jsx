@@ -24,6 +24,24 @@ const Feed = () => {
 
   }, []);
 
+  const deletePost = (id) => {
+
+    axios.delete(`https://mini-mern-project-3utv.vercel.app/posts/${id}`)
+      .then((res) => {
+
+        console.log("Post deleted successfully");
+
+        setPosts(posts.filter((post) => post._id !== id));
+
+      })
+      .catch((error) => {
+
+        console.log("Error deleting post:", error);
+
+      });
+
+  };
+
   return (
     <section className="feed-section">
 
@@ -48,6 +66,10 @@ const Feed = () => {
             />
 
             <p>{post.caption}</p>
+
+            <button onClick={() => deletePost(post._id)}>
+              Delete
+            </button>
 
           </div>
 
