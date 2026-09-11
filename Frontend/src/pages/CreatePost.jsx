@@ -27,7 +27,7 @@ const CreatePost = () => {
     return (
         <section className='create-post-section'>
 
-            <h1>Upload Your Favorite Photo</h1>
+            <h1>Upload your favorite photo</h1>
 
             <form onSubmit={handleSubmit}>
 
