@@ -7,7 +7,7 @@ const Feed = () => {
 
   useEffect(() => {
 
-    axios.get("http://localhost:3000/posts")
+    axios.get("https://mini-mern-project-3utv.vercel.app/posts")
       .then((res) => {
 
         console.log("Posts fetched successfully");
