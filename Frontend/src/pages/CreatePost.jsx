@@ -1,4 +1,3 @@
-
 import React from 'react'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
@@ -12,8 +11,12 @@ const CreatePost = () => {
 
         const formData = new FormData(e.target)
 
-        axios.post("https://mini-mern-project-3utv.vercel.app/create-post", formData)
+        axios.post(
+            "https://mini-mern-project-3utv.vercel.app/create-post",
+            formData
+        )
         .then((res) => {
+            console.log("Post created successfully")
             navigate("/feed")
         })
         .catch((err) => {
@@ -25,24 +28,27 @@ const CreatePost = () => {
     return (
         <section className='create-post-section'>
 
-            <h1>Create Post</h1>
+            <h1>Upload Your Favorite Photo ❤️</h1>
 
             <form onSubmit={handleSubmit}>
 
-                <input 
-                    type="file" 
-                    name="image" 
-                    accept="image/*" 
+                <input
+                    type="file"
+                    name="image"
+                    accept="image/*"
+                    required
                 />
 
-                <input 
-                    type="text" 
-                    name="caption" 
-                    placeholder="Enter caption" 
-                    required 
+                <input
+                    type="text"
+                    name="caption"
+                    placeholder="Enter caption"
+                    required
                 />
 
-                <button type="submit">Submit</button>
+                <button type="submit">
+                    Upload Photo
+                </button>
 
             </form>
 
@@ -51,4 +57,3 @@ const CreatePost = () => {
 }
 
 export default CreatePost
-
