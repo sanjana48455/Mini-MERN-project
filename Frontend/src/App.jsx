@@ -3,11 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import CreatePost from './pages/CreatePost'
 import Feed from './pages/feed'
 
-
 const App = () => {
   return (
     <Router>
       <Routes>
+
+        <Route
+          path="/"
+          element={<CreatePost />}
+        />
 
         <Route
           path="/create-post"
