@@ -9,17 +9,12 @@ const Feed = () => {
 
     axios.get("https://mini-mern-project-3utv.vercel.app/posts")
       .then((res) => {
-
         console.log("Posts fetched successfully");
         console.log(res.data.posts);
-
         setPosts(res.data.posts);
-
       })
       .catch((error) => {
-
         console.log("Error fetching posts:", error);
-
       });
 
   }, []);
@@ -27,17 +22,13 @@ const Feed = () => {
   const deletePost = (id) => {
 
     axios.delete(`https://mini-mern-project-3utv.vercel.app/posts/${id}`)
-      .then((res) => {
-
+      .then(() => {
         console.log("Post deleted successfully");
 
         setPosts(posts.filter((post) => post._id !== id));
-
       })
       .catch((error) => {
-
         console.log("Error deleting post:", error);
-
       });
 
   };
